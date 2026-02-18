@@ -1,0 +1,320 @@
+/* =========================
+   RESET (GLOBAL)
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   BODY (LOGIN & REGISTER)
+========================= */
+body {
+    min-height: 100vh;
+    background: #6a11cb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   LOGIN & REGISTER CARD
+========================= */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Headings */
+.card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Input fields */
+.card input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.card input:focus {
+    border-color: #6a11cb;
+}
+
+/* Buttons */
+.card button {
+    padding: 10px;
+    font-size: 15px;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #5311a8;
+}
+
+/* Error / info text */
+.card p {
+    font-size: 13px;
+    text-align: center;
+}
+
+.card p a {
+    color: #6a11cb;
+    text-decoration: none;
+}
+
+/* =========================
+   CHAT PAGE OVERRIDES
+========================= */
+.chat-page {
+    background: #f2f2f2;
+    display: block;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+    height: 50px;
+    background: #6a11cb;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* =========================
+   SIDE MENU
+========================= */
+.side-menu {
+    position: fixed;
+    top: 50px;
+    left: -260px;
+    width: 260px;
+    height: calc(100% - 50px);
+    background: white;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+/* PROFILE SECTION */
+.profile-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Circular biopic container */
+.profile-section img {
+    width: 230px;          /* 6 cm diameter */
+    height: 230px;         /* 6 cm diameter */
+    border-radius: 50%;    /* makes it circular */
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #6a11cb;
+}
+
+/* Username text */
+.profile-section h4 {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* MENU BUTTONS */
+.menu-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #6a11cb;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.menu-btn.logout {
+    background: #e74c3c;
+}
+
+/* =========================
+   CHAT CONTAINER (FULL SCREEN)
+========================= */
+.chat-container.full-screen {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* CHAT BOX */
+.chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+
+/* CHAT INPUT */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    margin-left: 5px;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* =========================
+   CHAT BUBBLES
+========================= */
+.message {
+    max-width: 70%;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Left (other users) */
+.message.left {
+    background: #e5e5ea;
+    align-self: flex-start;
+    border-top-left-radius: 4px;
+}
+
+/* Right (current user) */
+.message.right {
+    background: #6a11cb;
+    color: white;
+    align-self: flex-end;
+    border-top-right-radius: 4px;
+}
+
+/* Chat box layout fix */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   MESSAGE CONTENT
+========================= */
+.message .sender {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.message .text {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.message .time {
+    font-size: 11px;
+    opacity: 0.7;
+    text-align: right;
+}
+
+/* Hide sender name for own messages */
+.message.right .sender {
+    display: none;
+}
+
+/* Message animation */
+.message {
+    animation: fadeSlideIn 0.25s ease-in-out;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   CHANGE PASSWORD MODAL
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content button {
+    padding: 8px;
+}
+
+.modal-content .cancel {
+    background: #ccc;
+}

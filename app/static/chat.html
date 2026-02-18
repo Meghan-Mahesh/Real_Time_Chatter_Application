@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatterbox</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="chat-page">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <h3>Chatterbox</h3>
+    </div>
+
+    <!-- Side Menu -->
+    <div id="side-menu" class="side-menu">
+        <div class="profile-section">
+            <label for="profile-pic-input">
+                <img id="profile-pic" src="/static/default-avatar.png" alt="Profile">
+            </label>
+            <input type="file" id="profile-pic-input" accept="image/*" hidden>
+            <h4 id="username">Username</h4>
+        </div>
+
+        <!-- 🔐 Change Password -->
+        <button class="menu-btn" onclick="openChangePassword()">Change Password</button>
+
+        <!-- 🚪 Logout -->
+        <button class="menu-btn logout" onclick="logout()">Logout</button>
+
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-container full-screen">
+        <div id="chat-box" class="chat-box"></div>
+
+        <!-- Typing indicator -->
+        <div id="typing" style="font-size:12px; padding:5px; color:gray;"></div>
+
+        <div class="chat-input">
+            <input id="message" placeholder="Type a message">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- 🔐 Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <h3>Change Password</h3>
+            <input type="password" id="oldPass" placeholder="Old Password">
+            <input type="password" id="newPass" placeholder="New Password">
+            <button onclick="changePassword()">Update</button>
+            <button class="cancel" onclick="closeChangePassword()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="/static/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Chatterbox</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="card">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Email" class="input-field">
+    <input type="password" id="password" placeholder="Password" class="input-field">
+
+    <button onclick="login()" class="btn">Login</button>
+    <p id="msg" class="error"></p>
+
+    <p class="link-text">
+        New user? <a href="/static/register.html">Register</a>
+    </p>
+</div>
+
+
+<script>
+async function login(){
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("msg");
+
+    const res = await fetch("/login",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({email, password})
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.user_name);
+        localStorage.setItem("email", data.email);   // ✅ REQUIRED
+
+        // email-based profile pic storage
+        if (data.profile_pic) {
+            localStorage.setItem(
+                `profile_pic_${data.email}`,
+                data.profile_pic
+            );
+        }
+
+        window.location.replace("/static/chat.html"); // ✅ better than href
+    }
+    else{
+            msg.innerText = data.detail;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -10,7 +10,13 @@ from .admin.admin_routes import router as admin_router
 from .chat.websocket import router as chat_router
 from .chat.messages import router as messages_router
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parents[2]
+FRONTEND_DIR = BASE_DIR / "frontend"
+print(FRONTEND_DIR)
 
 # ===============================
 # CREATE TABLES
@@ -36,16 +42,20 @@ app.add_middleware(
 # ===============================
 # INCLUDE ROUTERS
 # ===============================
-app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(admin_router, prefix="/admin", tags=["Admin"])
+app.include_router(auth_router, prefix="/auth")
+app.include_router(admin_router, prefix="/admin")
 app.include_router(chat_router)
 app.include_router(messages_router, prefix="/chat")
 
-
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR,html=True),
+    name="frontend"
+)
 
 # ===============================
 # ROOT
 # ===============================
 @app.get("/")
-def root():
-    return {"status": "Backend running successfully 🚀"}
+def home():
+    return FileResponse(FRONTEND_DIR / "index.html")

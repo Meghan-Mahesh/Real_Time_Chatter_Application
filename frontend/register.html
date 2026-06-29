@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ChatterBox | Register</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- JS -->
+  <script defer src="js/config.js"></script>
+  <script defer src="js/auth.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>✨ Create Account</h2>
+    <p style="text-align:center; font-size:13px; opacity:0.85; margin-bottom:18px;">
+      Join ChatterBox & start chatting in real-time
+    </p>
+
+    <!-- Username -->
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter your name"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Password -->
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Create a strong password"
+      />
+    </div>
+
+    <!-- Register Button -->
+    <button class="btn" onclick="registerUser()">
+      Register
+    </button>
+
+    <!-- Error -->
+    <div class="error" id="error"></div>
+
+    <!-- Login Link -->
+    <div class="link">
+      Already have an account?
+      <a href="index.html">Login here</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

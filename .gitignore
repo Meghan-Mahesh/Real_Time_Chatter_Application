@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+
+# Python cache
+.pytest_cache/
+
+
+
+
+#tables will be generated after application starts running
+chat_app.db

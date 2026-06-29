@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ChatterBox | User Login</title>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="css/main.css" />
+
+	<!-- JS Files -->
+	<script defer src="js/config.js"></script>
+	<script defer src="js/auth.js"></script>
+
+	<!-- Responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+	<!-- Background wrapper (future bg.svg compatible) -->
+	<div class="container">
+
+		<!-- App Name -->
+		<h2>💬 ChatterBox</h2>
+		<p style="text-align:center; font-size:13px; opacity:0.85; margin-bottom:18px;">
+			Secure • Real-time • Smart Chat
+		</p>
+
+		<!-- Email -->
+		<div class="input-group">
+			<label for="email">Email</label>
+			<input type="email" id="email" placeholder="Enter your email" autocomplete="off" />
+		</div>
+
+		<!-- Password -->
+		<div class="input-group">
+			<label for="password">Password</label>
+			<input type="password" id="password" placeholder="Enter your password" />
+		</div>
+
+		<!-- Login Button -->
+		<button class="btn" onclick="loginUser()">
+			Login
+		</button>
+
+		<!-- Error Message -->
+		<div class="error" id="error"></div>
+
+		<!-- Register Link -->
+		<div class="link">
+			Don’t have an account?
+			<a href="register.html">Register here</a>
+		</div>
+
+		<!-- Admin Link (subtle) -->
+		<div class="link" style="margin-top:8px; font-size:12px; opacity:0.8;">
+			<a href="admin/admin_login.html">Admin Login</a>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

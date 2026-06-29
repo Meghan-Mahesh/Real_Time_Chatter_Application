@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ChatterBox | Chat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="css/chat.css" />
+
+	<script defer src="js/config.js"></script>
+	<script defer src="js/chat.js"></script>
+</head>
+
+<body>
+  <div class="chat-wrapper">
+
+    <main class="chat-area">
+      <div class="chat-header">
+        <h3>💬 ChatterBox – Real-Time Chat</h3>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="messages" id="messages"></div>
+
+      <div class="chat-input">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </main>
+
+  </div>
+</body>
+
+</html>

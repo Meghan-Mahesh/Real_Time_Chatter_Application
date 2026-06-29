@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard | ChatterBox</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/admin.css" />
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/admin.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <div class="admin-sidebar">
+    <h2>📊 Admin</h2>
+
+    <button onclick="loadDashboard()">Dashboard</button>
+    <button onclick="downloadCSV('users')">⬇ Download Users CSV</button>
+    <button onclick="downloadCSV('messages')">⬇ Download Messages CSV</button>
+    <button class="logout" onclick="adminLogout()">Logout</button>
+    
+  </div>
+
+  <!-- Main Content -->
+  <div class="admin-content">
+
+    <h2>System Overview</h2>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="card">
+        <h3 id="totalUsers">0</h3>
+        <p>Total Users</p>
+      </div>
+      <div class="card">
+        <h3 id="totalMessages">0</h3>
+        <p>Total Messages</p>
+      </div>
+      <div class="card">
+        <h3 id="blockedUsers">0</h3>
+        <p>Blocked Users</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <h3 style="margin-top:25px;">Recent Messages</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Message</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="messageTable">
+        <!-- data via JS -->
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+</body>
+</html>
